@@ -1,0 +1,134 @@
+
+!color            = #A27D35
+!background_color = #FBF7AA
+!border_color     = #F9E98E
+
+!tip_color        = !border_color
+!tip_length       = 14px
+
+!transparent      = "transparent"
+!chroma           = "pink"
+  
+=absolute
+  position: absolute
+
+=tip_border(!position, !color = !transparent, !width = !tip_length)
+  border-#{!position}:
+    width = !width
+    style: solid
+    color = !color
+  @if !color == !transparent
+    *border-#{!position}-color = !chroma
+
+=border_radius(!radius)
+  border-radius = !radius
+  -moz-border-radius = !radius
+  -webkit-border-radius = !radius
+
+#raccoon_tip
+  *padding = !tip_length
+  +absolute
+  z-index: 9999
+  
+  .rt_tip
+    width: 0
+    font-size: 0
+    line-height: 0
+    +absolute
+    filter: chroma(color=!chroma)
+    
+  &.rt_bottom_right
+    margin-left = -#{!tip_length * 2}
+    padding-top = !tip_length
+    .rt_tip
+      top: 0
+      left: !tip_length
+      +tip_border("bottom", !tip_color)
+      +tip_border("right")
+  
+  &.rt_bottom_middle
+    padding-top = !tip_length
+    .rt_tip
+      top: 0
+      left: 50%
+      margin-left: -#{!tip_length / 2}
+      +tip_border("bottom", !tip_color)
+      +tip_border("left"  , !transparent, !tip_length / 2)
+      +tip_border("right" , !transparent, !tip_length / 2)
+  
+  &.rt_bottom_left
+    margin-left = !tip_length * 2
+    padding-top = !tip_length
+    .rt_tip
+      top: 0
+      right: !tip_length
+      +tip_border("bottom", !tip_color)
+      +tip_border("left")
+  
+  &.rt_middle_left
+    margin-left = -#{!tip_length / 2}
+    padding-right = !tip_length
+    .rt_tip
+      top: 50%
+      right: 0
+      margin-top: -#{!tip_length / 2}
+      +tip_border("left"  , !tip_color)
+      +tip_border("top"   , !transparent, !tip_length / 2)
+      +tip_border("bottom", !transparent, !tip_length / 2)
+  
+  &.rt_top_left
+    margin-left = !tip_length * 2
+    padding-bottom = !tip_length
+    .rt_tip
+      bottom: 0
+      right: !tip_length
+      +tip_border("top", !tip_color)
+      +tip_border("left")
+  
+  &.rt_top_middle
+    padding-bottom = !tip_length
+    .rt_tip
+      bottom: 0
+      left: 50%
+      margin-left: -#{!tip_length / 2}
+      +tip_border("top", !tip_color)
+      +tip_border("left"  , !transparent, !tip_length / 2)
+      +tip_border("right" , !transparent, !tip_length / 2)
+  
+  &.rt_top_right
+    margin-left = -#{!tip_length * 2}
+    padding-bottom = !tip_length
+    .rt_tip
+      bottom: 0
+      left: !tip_length
+      +tip_border("top", !tip_color)
+      +tip_border("right")
+  
+  &.rt_middle_right
+    margin-left = !tip_length / 2
+    padding-left = !tip_length
+    .rt_tip
+      top: 50%
+      left: 0
+      margin-top: -#{!tip_length / 2}
+      +tip_border("right"  , !tip_color)
+      +tip_border("top"   , !transparent, !tip_length / 2)
+      +tip_border("bottom", !transparent, !tip_length / 2)
+    
+  .rt_content
+    padding: 6px 12px 8px 12px
+    overflow: hidden
+    background = !background_color
+    border: 
+      width: 10px
+      style: solid
+      color = !border_color
+    *border-width: 7px
+    +border_radius(10px)
+
+    &, & a
+      color = !color
+      text-shadow: none
+    
+    a
+      outline: 0
