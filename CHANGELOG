@@ -1,5 +1,9 @@
 = RaccoonTip CHANGELOG
 
-== Version 1.0.0 (August 27, 2010)
+== Version 1.0.1 (August 28, 2010)
+
+* Auto-correcting the position of the RaccoonTip when it will be displayed outside the viewport if not correcting
+
+== Version 1.0.0 (August 28, 2010)
 
 * Initial release

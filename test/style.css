@@ -48,7 +48,7 @@ a {
   width: 920px;
   margin: auto;
   padding-top: 25px;
-  padding-bottom: 100px; }
+  padding-bottom: 50px; }
 
 #page_header {
   text-align: center; }
@@ -68,5 +68,25 @@ a {
 #page_content {
   text-align: center; }
   #page_content a {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold; }
+
+a.top_left, a.top_right, a.bottom_left, a.bottom_right {
+  position: fixed;
+  *position: absolute; }
+a.top_left {
+  top: 35px;
+  left: 50px;
+  text-align: left; }
+a.top_right {
+  top: 35px;
+  right: 50px;
+  text-align: right; }
+a.bottom_left {
+  bottom: 35px;
+  left: 50px;
+  text-align: left; }
+a.bottom_right {
+  bottom: 35px;
+  right: 50px;
+  text-align: right; }
