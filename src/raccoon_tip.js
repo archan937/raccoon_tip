@@ -36,7 +36,8 @@ RaccoonTip = (function() {
   var displaying = false, mouseover = false;
   
   var register = function(target, content, options) {
-    $(target).live((options || {}).event || "click", function(event) {
+    var attachFunction = $.inArray(options.event || default_options.event, ["focus"]) == -1 ? "live" : "bind";
+    $(target)[attachFunction]((options || {}).event || "click", function(event) {
       event.preventDefault();
       display(event.target, content, options);
     });
