@@ -43,25 +43,50 @@ Just include RaccoonTip:
 
 h2. Usage
 
-h3. Register
+The RaccoonTip module provides you the following three functions:
 
-Lorem ipsum dolor sit amet...
-
-<pre>
-  <script type="text/javascript" charset="utf-8">
-    RaccoonTip.register("#page_menu a.login", "#login_menu");
-  </script>
-</pre>
+* @display@ - The @core@ function for displaying the RaccoonTip
+* @register@ - Calling this function tells RaccoonTip to display itself when a certain event is triggered (at default the @click@ event)
+* @close@ - This function closes the RaccoonTip of course
 
 h3. Display
 
 Lorem ipsum dolor sit amet...
 
 <pre>
-  <script type="text/javascript" charset="utf-8">
+  <script type="text/javascript">
     RaccoonTip.display("#page_menu a.login", "#login_menu");
   </script>
 </pre>
+
+h4. Available options
+
+* @duration@ - 
+* @position@ - 
+* @beforeShow@ - 
+* @afterHide@ - 
+
+h3. Register
+
+Lorem ipsum dolor sit amet...
+
+<pre>
+  <script type="text/javascript">
+    RaccoonTip.register("#page_content a", "#login_menu");
+  </script>
+</pre>
+
+h3. Close
+
+You can close the RaccoonTip just by clicking outside it. But you can also close it by calling the close function:
+
+<pre>
+  ...
+  <a href="#" onclick="RaccoonTip.close(); return false">Close</a>
+  ...
+</pre>
+
+It's easy as 1-2-3!
 
 For a complete example, please open "http://github.com/archan937/raccoon_tip/blob/master/test/index.html":http://github.com/archan937/raccoon_tip/blob/master/test/index.html.
 
@@ -78,8 +103,7 @@ jQuery<br>
 
 h2. ToDo's
 
-* Complete the README.textile
-* Auto-correct the position when the balloon tip will be displayed outside the viewport
+* Complete README.textile
 * Tweak the positioning in IE6
 
 h2. License
