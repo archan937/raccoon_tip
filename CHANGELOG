@@ -1,5 +1,10 @@
 = RaccoonTip CHANGELOG
 
+== Version 1.0.2 (August 29, 2010)
+
+* Improved script src detection
+* Calling onRaccoonTipReady if it exists when RaccoonTip is loaded
+
 == Version 1.0.1 (August 28, 2010)
 
 * Auto-correcting the position of the RaccoonTip when it will be displayed outside the viewport if not correcting
