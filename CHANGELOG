@@ -1,5 +1,9 @@
 = RaccoonTip CHANGELOG
 
+== Version 1.0.5 (September 21, 2010)
+
+* Simplified the auto-correction logic of the RaccoonTip position
+
 == Version 1.0.4 (September 21, 2010)
 
 * Extending the native Array with the function .compact() which removes values 'undefined' from the array itself
