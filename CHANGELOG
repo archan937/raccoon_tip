@@ -1,5 +1,9 @@
 = RaccoonTip CHANGELOG
 
+== Version 1.0.7 (October 2, 2010)
+
+* Added a very subtle drop shadow
+
 == Version 1.0.6 (September 21, 2010)
 
 * Tweaked the auto-correction logic of the RaccoonTip position, again... (trying both clockwise and counterclockwise directions and choosing the closest position)
