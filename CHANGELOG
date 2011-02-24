@@ -1,5 +1,9 @@
 = RaccoonTip CHANGELOG
 
+== Version 1.0.9 (February 24, 2010)
+
+* Fixed Chrome bug: not hiding Raccoontip after clicking on a text field anymore
+
 == Version 1.0.8 (October 17, 2010)
 
 * Added canHide option which has to be a function (when not returning true, RaccoonTip will not automatically close)
