@@ -26,11 +26,11 @@ Make sure you put the @jquery@ directory in the same directory as the RaccoonTip
 
 <pre>
   |
-  |-- raccoon_tip.js
+  +-- raccoon_tip.js
   |
-  |-- jquery
+  +-+ jquery
     |
-    |-- core.js
+    +-- core.js
 </pre>
 
 Just include RaccoonTip:
@@ -40,6 +40,14 @@ Just include RaccoonTip:
 </pre>
 
 *Note*: include @raccoon_tip-min.js@ for the minified RaccoonTip library
+
+h2. Development
+
+Run the following command in your console to update raccoon_tip.css when required:
+
+<pre>
+  sass --watch src/sass/raccoon_tip.sass:src/raccoon_tip.css --style compressed
+</pre>
 
 h2. Usage
 
@@ -61,10 +69,10 @@ Lorem ipsum dolor sit amet...
 
 h4. Available options
 
-* @duration@ - 
-* @position@ - 
-* @beforeShow@ - 
-* @afterHide@ - 
+* @duration@ -
+* @position@ -
+* @beforeShow@ -
+* @afterHide@ -
 
 h3. Register
 

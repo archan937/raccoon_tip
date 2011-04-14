@@ -1,6 +1,12 @@
 = RaccoonTip CHANGELOG
 
-== Version 1.0.9 (February 24, 2010)
+== Version 1.1.0 (April 14, 2011)
+
+* Being jQuery 1.5.2 compatible: not using "display: none" to hide RaccoonTip anymore, but making it transparent and giving it a negative z-index
+* Fixed RaccoonTip positioning bug within Firefox when using jQuery 1.5.2
+* Defining Array.indexOf if not defined already (for IE)
+
+== Version 1.0.9 (February 24, 2011)
 
 * Fixed Chrome bug: not hiding Raccoontip after clicking on a text field anymore
 
