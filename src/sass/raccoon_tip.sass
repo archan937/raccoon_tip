@@ -10,7 +10,7 @@
 
 !transparent      = "transparent"
 !chroma           = "pink"
-  
+
 =absolute
   position: absolute
 
@@ -35,15 +35,24 @@
 #raccoon_tip
   *padding = !tip_length
   +absolute
-  z-index: 9999
-  
+  z-index: 999999
+
+  &.hidden
+    top: 0 !important
+    left: 0 !important
+    opacity: 0 !important
+    -moz-opacity: 0 !important
+    -khtml-opacity: 0 !important
+    filter: alpha(opacity = 0) !important
+    z-index: -1982 !important
+
   .rt_tip
     width: 0
     font-size: 0
     line-height: 0
     +absolute
     filter: chroma(color=!chroma)
-    
+
   &.rt_bottom_right
     margin-left = -#{!tip_length * 2}
     padding-top = !tip_length
@@ -52,7 +61,7 @@
       left: !tip_length
       +tip_border("bottom", !tip_color)
       +tip_border("right")
-  
+
   &.rt_bottom_middle
     padding-top = !tip_length
     .rt_tip
@@ -62,7 +71,7 @@
       +tip_border("bottom", !tip_color)
       +tip_border("left"  , !transparent, !tip_length / 2)
       +tip_border("right" , !transparent, !tip_length / 2)
-  
+
   &.rt_bottom_left
     margin-left = !tip_length * 2
     padding-top = !tip_length
@@ -71,7 +80,7 @@
       right: !tip_length
       +tip_border("bottom", !tip_color)
       +tip_border("left")
-  
+
   &.rt_middle_left
     margin-left = -#{!tip_length / 2}
     padding-right = !tip_length
@@ -82,7 +91,7 @@
       +tip_border("left"  , !tip_color)
       +tip_border("top"   , !transparent, !tip_length / 2)
       +tip_border("bottom", !transparent, !tip_length / 2)
-  
+
   &.rt_top_left
     margin-left = !tip_length * 2
     padding-bottom = !tip_length
@@ -91,7 +100,7 @@
       right: !tip_length
       +tip_border("top", !tip_color)
       +tip_border("left")
-  
+
   &.rt_top_middle
     padding-bottom = !tip_length
     .rt_tip
@@ -101,7 +110,7 @@
       +tip_border("top", !tip_color)
       +tip_border("left"  , !transparent, !tip_length / 2)
       +tip_border("right" , !transparent, !tip_length / 2)
-  
+
   &.rt_top_right
     margin-left = -#{!tip_length * 2}
     padding-bottom = !tip_length
@@ -110,7 +119,7 @@
       left: !tip_length
       +tip_border("top", !tip_color)
       +tip_border("right")
-  
+
   &.rt_middle_right
     margin-left = !tip_length / 2
     padding-left = !tip_length
@@ -121,12 +130,12 @@
       +tip_border("right"  , !tip_color)
       +tip_border("top"   , !transparent, !tip_length / 2)
       +tip_border("bottom", !transparent, !tip_length / 2)
-    
+
   .rt_content
     padding: 6px 12px 8px 12px
     overflow: hidden
     background = !background_color
-    border: 
+    border:
       width: 10px
       style: solid
       color = !border_color
@@ -137,6 +146,6 @@
     &, & a
       color = !color
       text-shadow: none
-    
+
     a
       outline: 0

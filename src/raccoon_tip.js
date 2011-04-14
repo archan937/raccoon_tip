@@ -14,7 +14,7 @@ if (typeof(RaccoonTip) == "undefined") {
 // *
 
 RaccoonTip = (function() {
-  var html = '<div id="raccoon_tip" style="display: none"><div class="rt_tip"></div><div class="rt_content"></div></div>';
+  var html = '<div id="raccoon_tip" class="hidden"><div class="rt_tip"></div><div class="rt_content"></div></div>';
   var css  = '<style>{style}</style>';
 
   var default_options = {event: "click", duration: "fast", position: "bottom_right", beforeShow: function() {}, canHide: function() { return true; }, afterHide: function() {}}, opts = null;
@@ -63,7 +63,7 @@ RaccoonTip = (function() {
     beforeShow();
     setContent();
     position();
-    $("#raccoon_tip").data("rt_options", opts).show(opts.duration);
+    $("#raccoon_tip").data("rt_options", opts).hide().removeClass("hidden").show(opts.duration);
   };
 
   var beforeShow = function() {
@@ -153,8 +153,10 @@ RaccoonTip = (function() {
 
   var hide = function() {
     var options = $("#raccoon_tip").data("rt_options");
-    $("#raccoon_tip").hide(0);
-    options.afterHide.apply(options.target, [options.content, options]);
+    $("#raccoon_tip").addClass("hidden");
+    if (typeof(options.afterHide) == "function") {
+      options.afterHide.apply(options.target, [options.content, options]);
+    }
     if ($("#raccoon_tip").data("rt_marker")) {
       $("#raccoon_tip").data("rt_marker").before($("#raccoon_tip .rt_content").children()).remove();
     }
