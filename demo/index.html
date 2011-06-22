@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>
+      archan937@github: /raccoon_tip - demo
+    </title>
+    <link  href="assets/style.css"       type="text/css" rel="stylesheet" media="screen"/>
+    <link  href="../src/raccoon_tip.css" type="text/css" rel="stylesheet" media="screen"/>
+    <script src="../src/raccoon_tip.js"  type="text/javascript"></script>
+    <script>
+      $(function() {
+        var caption_index = null;
+        var captions  = ["Click here again!", "And again!", "Come on, click again!", "Keep on clicking!", "He, why not click again?", "Please click here!", "Be a sport and click!", "For the last time, click!", "Just kidding, click again!"];
+        var positions = ["", "bottom_middle", "bottom_left", "middle_left", "top_left", "top_middle", "top_right", "middle_right"];
+
+        RaccoonTip.register(
+          "a.tip", null,
+          {
+            beforeShow: function(content, options) {
+              var position_index = $(this).data("position_index");
+
+              if (caption_index == captions.length - 1) {
+                caption_index = 0;
+              } else {
+                caption_index = caption_index + 1;
+              }
+
+              if (position_index == null || position_index == positions.length - 1) {
+                position_index = 0;
+              } else {
+                position_index = position_index + 1;
+              }
+
+              $(this).html(captions[caption_index]);
+              $(this).data("position_index", position_index);
+
+              if (positions[position_index] == "") {
+                return {content: options.position};
+              } else {
+                return {content: positions[position_index], position: positions[position_index]};
+              }
+            }
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <div id="page">
+      <div id="page_wrapper">
+        <div id="page_header">
+          <h1>
+            <a href="https://github.com/archan937/raccoon_tip">RaccoonTip</a>
+          </h1>
+          <h2>A lightweight jQuery based balloon tip library</h2>
+        </div>
+        <ul id="page_menu">
+          <li>
+            <a href="https://github.com/archan937/raccoon_tip">Github repository</a>
+          </li>
+          <li class="separator">-</li>
+          <li>
+            Download
+            <a href="http://github.com/archan937/raccoon_tip/zipball/master">ZIP</a>
+            /
+            <a href="http://github.com/archan937/raccoon_tip/tarball/master">TAR</a>
+          </li>
+          <li class="separator">-</li>
+          <li>
+            <a href="http://twitter.com/archan937">@archan937</a>
+          </li>
+          <li class="separator">-</li>
+          <li>
+            <a href="mailto:paul.engel@holder.nl">@holder.nl</a>
+          </li>
+        </ul>
+        <div id="page_content">
+          <a href="#" class="tip">Click here!</a>
+        </div>
+      </div>
+    </div>
+    <div id="page_footer">
+      made by
+      <a href="mailto:paul.engel@holder.nl">Paul Engel</a>
+      <span class="separator">-</span>
+      <a href="http://holder.nl">Internetbureau Holder B.V.</a>
+    </div>
+    <a href="#" class="tip top_left">Click here!</a>
+    <a href="#" class="tip top_right">Click here!</a>
+    <a href="#" class="tip bottom_left">Click here!</a>
+    <a href="#" class="tip bottom_right">Click here!</a>
+  </body>
+</html>
