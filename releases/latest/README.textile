@@ -1,0 +1,144 @@
+h1. RaccoonTip
+
+A lightweight jQuery based balloon tip library
+
+h2. Introduction
+
+RaccoonTip is a small Javascript library which lets you display HTML, DOM elements or text in a balloon tip with ease. It uses jQuery ("http://jquery.com":http://jquery.com) and is tested in IE6+, Firefox 3+, Safari 3+ and Chrome5+. RaccoonTip does NOT require images and is rendered with CSS3.
+
+h2. Installation
+
+h3. When including jQuery yourself
+
+Just include RaccoonTip after you have included jQuery:
+
+<pre>
+  <script src="path/to/jquery.js"      type="text/javascript"></script>
+  <script src="path/to/raccoon_tip.js" type="text/javascript"></script>
+</pre>
+
+*Note*: include @raccoon_tip.min.js@ for the minified RaccoonTip library
+
+h3. When letting RaccoonTip include jQuery automatically
+
+Make sure you put the @jquery@ directory in the same directory as the RaccoonTip library:
+
+<pre>
+  |-raccoon_tip.js
+  |~jquery
+    `-core.js
+</pre>
+
+Just include RaccoonTip:
+
+<pre>
+  <script src="path/to/raccoon_tip.js" type="text/javascript"></script>
+</pre>
+
+*Note*: include @raccoon_tip.min.js@ for the minified RaccoonTip library
+
+h2. Usage
+
+The RaccoonTip module provides you the following three functions:
+
+* @display@ - The @core@ function for displaying the RaccoonTip
+* @register@ - Calling this function tells RaccoonTip to call @RaccoonTip.display@ when a certain event is triggered on certain elements (at default the @click@ event)
+* @close@ - This function closes the RaccoonTip of course
+
+h3. Display
+
+As already mentioned, this is the core function for displaying RaccoonTip. This function accepts the following arguments:
+
+* @target@ - The element which RaccoonTip points to
+* @content@ - The content which will be displayed within RaccoonTip: this can be either @null@ (when having dynamic content), HTML, DOM elements or text
+* @options@ - A simple hash which customizes RaccoonTip
+
+h4. Available options
+
+* @duration@ (default: @"fast"@) – This influences the speed with which RaccoonTip will be displayed (see also "http://api.jquery.com/show":http://api.jquery.com/show)
+* @position@ (default: @"bottom_right"@) – The default position with which RaccoonTip will attempt to display itself (it searches for an alternative when being displayed outside the window viewport)
+* @beforeShow@ (default: @"function() {}@) – A callback function called before showing RaccoonTip (handy for altering RaccoonTip's content dynamically)
+* @canHide@ (default: @function() { return true; }@) – A function which will only close RaccoonTip when the function returns a @true@ value
+* @afterHide@ (default: @function() {}@) – A callback function called after hiding RaccoonTip
+
+h4. A simple example
+
+<pre>
+  <script>
+    RaccoonTip.display("#page_menu a.login", "#login_menu", {duration: "slow"});
+  </script>
+</pre>
+
+h3. Register
+
+You can use @RaccoonTip.register@ to instruct RaccoonTip to display itself when a certain event on certain elements are triggered. It accepts the same arguments as @RaccoonTip.display@.
+
+h4. Available options
+
+The options available are the options listed in *Display* along with:
+
+* @event@ (default: @"click"@) – The event that triggers the call to @RaccoonTip.display()@
+
+h4. A simple example
+
+<pre>
+  <script>
+    RaccoonTip.register(
+      "a.tip", null,
+      {
+        event: "hover",
+        beforeShow: function(content, options) {
+          $(this).html(randomText());
+        }
+      }
+    );
+  </script>
+</pre>
+
+h3. Close
+
+You can close the RaccoonTip just by clicking outside it. But you can also close it by calling the close function:
+
+<pre>
+  <a href="#" onclick="RaccoonTip.close(); return false">Close</a>
+</pre>
+
+or
+
+<pre>
+  <script>
+    RaccoonTip.close();
+  </script>
+</pre>
+
+It's easy as 1-2-3!
+
+h2. RaccoonTip in action
+
+Please take a look at "http://archan937.github.com/raccoon_tip":http://archan937.github.com/raccoon_tip for a live demo.
+
+h2. Contact me
+
+For support, remarks and requests please mail me at "paul.engel@holder.nl":mailto:paul.engel@holder.nl.
+
+h2. Credit
+
+This Javascript library depends on the "jQuery":http://jquery.com library:
+
+"http://jquery.com":http://jquery.com
+
+h2. ToDo's
+
+* Tweak the positioning in IE6
+
+h2. License
+
+Copyright (c) 2011 Paul Engel, released under the MIT license
+
+"http://holder.nl":http://holder.nl – "http://github.com/archan937":http://github.com/archan937 – "http://codehero.es":http://codehero.es – "http://gettopup.com":http://gettopup.com – "http://twitter.com/archan937":http://twitter.com/archan937 – "paul.engel@holder.nl":mailto:paul.engel@holder.nl
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
