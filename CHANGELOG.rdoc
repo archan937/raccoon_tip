@@ -1,5 +1,9 @@
 = RaccoonTip CHANGELOG
 
+== Version 1.1.1 (June 22, 2011)
+
+* Prevented from RaccoonTip being displayed outside the viewport (finally)
+
 == Version 1.1.0 (April 14, 2011)
 
 * Being jQuery 1.5.2 compatible: not using "display: none" to hide RaccoonTip anymore, but making it transparent and giving it a negative z-index
