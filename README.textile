@@ -55,15 +55,15 @@ As already mentioned, this is the core function for displaying RaccoonTip. This 
 
 h4. Available options
 
-* @duration@ (default: @"fast"@)<br>
+* @duration@ - *default*: @"fast"@<br>
   This influences the speed with which RaccoonTip will be displayed (see also "http://api.jquery.com/show":http://api.jquery.com/show)
-* @position@ (default: @"bottom_right"@)<br>
-  The default position with which RaccoonTip will attempt to display itself (it searches for an alternative when being displayed outside the window viewport)
-* @beforeShow@ (default: @"function() {}@)<br>
+* @position@ - *default*: @"bottom_right"@<br>
+  The default position with which RaccoonTip will attempt to display itself (it searches for an alternative when displayed outside the window viewport)
+* @beforeShow@ - *default*: @function() {}@<br>
   A callback function called before showing RaccoonTip (handy for altering RaccoonTip's content dynamically)
-* @canHide@ (default: @function() { return true; }@)<br>
+* @canHide@ - *default*: @function() { return true; }@<br>
   A function which will only close RaccoonTip when the function returns a @true@ value
-* @afterHide@ (default: @function() {}@)<br>
+* @afterHide@ - *default*: @function() {}@<br>
   A callback function called after hiding RaccoonTip
 
 h4. A simple example
@@ -82,7 +82,8 @@ h4. Available options
 
 The options available are the options listed in *Display* along with:
 
-* @event@ (default: @"click"@) – The event that triggers the call to @RaccoonTip.display()@
+* @event@ - *default*: @"click"@
+  The event that triggers the call to @RaccoonTip.display()@
 
 h4. A simple example
 
